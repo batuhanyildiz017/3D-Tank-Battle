@@ -863,6 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  rotationSpeed: 200
   inputs: {fileID: 2131005029}
 --- !u!1 &551714438
 GameObject:
