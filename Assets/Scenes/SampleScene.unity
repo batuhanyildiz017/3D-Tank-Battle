@@ -728,6 +728,7 @@ GameObject:
   - component: {fileID: 410138947}
   - component: {fileID: 410138946}
   - component: {fileID: 410138949}
+  - component: {fileID: 410138950}
   m_Layer: 0
   m_Name: Player_Tank
   m_TagString: Untagged
@@ -849,6 +850,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &410138950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410138944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c28db9edd59e94eb5831dad223b90a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  inputs: {fileID: 2131005029}
 --- !u!1 &551714438
 GameObject:
   m_ObjectHideFlags: 0
