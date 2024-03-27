@@ -19,15 +19,13 @@ namespace TankScripts
         private IEnumerator accelerateCoroutine;
 
         private bool upBtn, downBtn;
-        // Start is called before the first frame update
+
         void Start()
         {
             upBtn = false;
             downBtn = false;
             currentMoveSpeed = initialMoveSpeed;
         }
-
-        // Update is called once per frame
         void Update()
         {
             MoveTank(); // ileri geri tank hareketi
@@ -108,6 +106,5 @@ namespace TankScripts
             if(rightclickControl==true && (upBtn==true || downBtn==true))
                 transform.Rotate(new Vector3(0f, rotationSpeed*Time.deltaTime, 0f));
         }
-        
     }
 }
