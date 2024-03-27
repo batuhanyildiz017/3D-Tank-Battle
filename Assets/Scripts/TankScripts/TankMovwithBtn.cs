@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +7,16 @@ namespace TankScripts
     public class TankMovwithBtn : MonoBehaviour
     {
         [SerializeField]public float moveSpeed = 5f; // Tankın hareket hızı
-        public float rotationSpeed = 350f;
-        private bool leftclickControl;
-        private bool rightclickControl;
+        public float rotationSpeed = 350f; // Tankın rotasyon hızı
+        private bool leftclickControl;  //Sol Butona basılmasını kontrol etme
+        private bool rightclickControl; //Sağ Butona basılmasını kontrol etme
+        
+        [SerializeField] private float initialMoveSpeed = 1f; // Tankın başlangıç hızı
+        [SerializeField] private float maxMoveSpeed = 5f; // Tankın maksimum hızı
+        [SerializeField] private float accelerationRate = 0.1f; // Hızlanma oranı
+        private float currentMoveSpeed;
+        
+        private IEnumerator accelerateCoroutine;
 
         private bool upBtn, downBtn;
         // Start is called before the first frame update
@@ -16,7 +24,7 @@ namespace TankScripts
         {
             upBtn = false;
             downBtn = false;
-
+            currentMoveSpeed = initialMoveSpeed;
         }
 
         // Update is called once per frame
@@ -30,14 +38,26 @@ namespace TankScripts
 
         public void UpButton()
         {
+            currentMoveSpeed = initialMoveSpeed;
             upBtn = !upBtn;
             downBtn = false;
+            if (accelerateCoroutine == null)
+            {
+                accelerateCoroutine = Accelerate();
+                StartCoroutine(accelerateCoroutine);
+            }
         }
 
         public void DownButton()
         {
+            currentMoveSpeed = initialMoveSpeed;
             downBtn = !downBtn;
             upBtn = false;
+            if (accelerateCoroutine == null)
+            {
+                accelerateCoroutine = Accelerate();
+                StartCoroutine(accelerateCoroutine);
+            }
         }
         public void MakeTrueLeft()  //sol butona bas�ld���n� kontrol etme
         {
@@ -60,11 +80,20 @@ namespace TankScripts
         {
             if (upBtn==true && downBtn==false)
             {
-                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+                transform.Translate(Vector3.forward * currentMoveSpeed * Time.deltaTime);
             }else if (downBtn == true && upBtn==false)
             {
-                transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+                transform.Translate(Vector3.back * currentMoveSpeed * Time.deltaTime);
             }
+        }
+        IEnumerator Accelerate()
+        {
+            while (currentMoveSpeed < maxMoveSpeed)
+            {
+                currentMoveSpeed += accelerationRate;
+                yield return null;
+            }
+            accelerateCoroutine = null;
         }
         void LeftRotate()
         {
