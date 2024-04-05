@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Projection : MonoBehaviour {
+    
     [SerializeField] private LineRenderer _line;
     [SerializeField] private int _maxPhysicsFrameIterations = 100;
     [SerializeField] private Transform _obstaclesParent;
@@ -35,6 +36,7 @@ public class Projection : MonoBehaviour {
     }
 
     public void SimulateTrajectory(Ball ballPrefab, Vector3 pos, Vector3 velocity) {
+       
         var ghostObj = Instantiate(ballPrefab, pos, Quaternion.identity);
         SceneManager.MoveGameObjectToScene(ghostObj.gameObject, _simulationScene);
 

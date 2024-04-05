@@ -1,11 +1,19 @@
+using Scriptableobject;
 using UnityEngine;
 
-public class Ball : MonoBehaviour {
+public class Ball : MonoBehaviour
+{
+
+    [SerializeField] private BulletSO _bulletSo;
+    
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip[] _clips;
     [SerializeField] private GameObject _poofPrefab;
+    [SerializeField] private int maxHitCount;
+    
     private bool _isGhost;
+    private int hitCount;
 
     public void Init(Vector3 velocity, bool isGhost) {
         _isGhost = isGhost;
@@ -14,7 +22,12 @@ public class Ball : MonoBehaviour {
 
     public void OnCollisionEnter(Collision col) {
         if (_isGhost) return;
-        Instantiate(_poofPrefab, col.contacts[0].point, Quaternion.Euler(col.contacts[0].normal));
+
+        hitCount++;
+        
+        if(hitCount >= maxHitCount )
+            Destroy(gameObject);
+        
         _source.clip = _clips[Random.Range(0, _clips.Length)];
         _source.Play();
     }

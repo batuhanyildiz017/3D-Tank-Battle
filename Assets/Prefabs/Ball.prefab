@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46da26da741a69b4fb779ad178bce122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletSo: {fileID: 11400000, guid: 910a2249c4349a14e8da47cbf7b99498, type: 2}
   _rb: {fileID: 2156088222425844109}
   _source: {fileID: 6762448618453932208}
   _clips:
@@ -156,7 +157,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d9488fe13d5a67e439ae853c8958da42, type: 3}
   - {fileID: 8300000, guid: b71bfaac926af7d4e8747ac2489bc2a8, type: 3}
   - {fileID: 8300000, guid: afa0a8db0c3c03a4c9c28f4c8fbffb9a, type: 3}
-  _poofPrefab: {fileID: 165672, guid: 146d2ff25be0f824fa285b16b2915ff3, type: 3}
+  _poofPrefab: {fileID: 711883039324090607}
+  hitCount: 0
+  maxHitCount: 2
 --- !u!82 &6762448618453932208
 AudioSource:
   m_ObjectHideFlags: 0

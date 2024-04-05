@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Scriptableobject;
 using UnityEngine;
 
 namespace TankScripts
 {
     public class TankMovwithBtn : MonoBehaviour
     {
-        [SerializeField]public float moveSpeed = 5f; // Tankın hareket hızı
-        public float rotationSpeed = 350f; // Tankın rotasyon hızı
+        [SerializeField] private TankSO _tankSo;
+        
         private bool leftclickControl;  //Sol Butona basılmasını kontrol etme
         private bool rightclickControl; //Sağ Butona basılmasını kontrol etme
         
-        [SerializeField] private float initialMoveSpeed = 1f; // Tankın başlangıç hızı
-        [SerializeField] private float maxMoveSpeed = 5f; // Tankın maksimum hızı
-        [SerializeField] private float accelerationRate = 0.1f; // Hızlanma oranı
         private float currentMoveSpeed;
         
         private IEnumerator accelerateCoroutine;
@@ -24,7 +22,7 @@ namespace TankScripts
         {
             upBtn = false;
             downBtn = false;
-            currentMoveSpeed = initialMoveSpeed;
+            currentMoveSpeed = _tankSo.TankFirstSpeed;
         }
         void Update()
         {
@@ -36,7 +34,7 @@ namespace TankScripts
 
         public void UpButton()
         {
-            currentMoveSpeed = initialMoveSpeed;
+            currentMoveSpeed = _tankSo.TankFirstSpeed;
             upBtn = !upBtn;
             downBtn = false;
             if (accelerateCoroutine == null)
@@ -48,7 +46,7 @@ namespace TankScripts
 
         public void DownButton()
         {
-            currentMoveSpeed = initialMoveSpeed;
+            currentMoveSpeed = _tankSo.TankFirstSpeed;
             downBtn = !downBtn;
             upBtn = false;
             if (accelerateCoroutine == null)
@@ -86,9 +84,9 @@ namespace TankScripts
         }
         IEnumerator Accelerate()
         {
-            while (currentMoveSpeed < maxMoveSpeed)
+            while (currentMoveSpeed < _tankSo.TankMaxSpeed)
             {
-                currentMoveSpeed += accelerationRate;
+                currentMoveSpeed += _tankSo.TankAccelerationRate;
                 yield return null;
             }
             accelerateCoroutine = null;
@@ -97,14 +95,14 @@ namespace TankScripts
         {
             if (leftclickControl==true && (upBtn==true || downBtn==true) )
             {
-                transform.Rotate(new Vector3(0f, -rotationSpeed*Time.deltaTime, 0f));
+                transform.Rotate(new Vector3(0f, -_tankSo.HeadRotateSpeed*Time.deltaTime, 0f));
 
             }
         }
         void RightRotate()
         {
             if(rightclickControl==true && (upBtn==true || downBtn==true))
-                transform.Rotate(new Vector3(0f, rotationSpeed*Time.deltaTime, 0f));
+                transform.Rotate(new Vector3(0f, _tankSo.HeadRotateSpeed*Time.deltaTime, 0f));
         }
     }
 }

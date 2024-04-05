@@ -2637,11 +2637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb78ad09ae25d3479c3fd363a26a408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotationSpeed: 100
-  initialMoveSpeed: 1
-  maxMoveSpeed: 5
-  accelerationRate: 0.1
+  _tankSo: {fileID: 11400000, guid: 624fbd3bd78afd74c92d3b919b290e5c, type: 2}
 --- !u!54 &6166848607993877410
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2851,8 +2847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projection: {fileID: 6889065752438303781}
+  _tankSo: {fileID: 11400000, guid: 624fbd3bd78afd74c92d3b919b290e5c, type: 2}
   _ballPrefab: {fileID: 6324918862190453658, guid: be2f262539015d24f9f5b4df9f4d1119, type: 3}
-  _force: 150
   _ballSpawn: {fileID: 675023435}
   _source: {fileID: 6889065752438303784}
   _clip: {fileID: 8300000, guid: 0a8eb8b33ef85104a8408c5a20f23aa2, type: 3}
