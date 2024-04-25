@@ -7,10 +7,7 @@ public class RotateTurret : MonoBehaviour
     public float rotationSpeed = 60f;
     public TankScripts.Inputs inputs; // Inputs sınıfına erişmek için referans
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
     void Update()
     {
         RotatationTurret();
