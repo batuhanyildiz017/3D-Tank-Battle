@@ -15,8 +15,5 @@ MonoBehaviour:
   TankFirstSpeed: 1
   TankMaxSpeed: 5
   TankAccelerationRate: 0.2
-  HeadRotateSpeed: 10
+  HeadRotateSpeed: 25
   Force: 50
-  AudioSource: {fileID: 0}
-  ShotoParticle: {fileID: 0}
-  ShootSpawnPoint: {fileID: 0}
