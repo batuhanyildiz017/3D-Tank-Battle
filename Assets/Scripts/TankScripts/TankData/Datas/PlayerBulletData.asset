@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796ff1179c5cab74c940c7be504a24fa, type: 3}
   m_Name: PlayerBulletData
   m_EditorClassIdentifier: 
-  Rb: {fileID: 0}
-  PoofPrefab: {fileID: 0}
+  Damege: 0
   deathTime: 0
+  MaxHitCount: 3

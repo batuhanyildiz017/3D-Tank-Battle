@@ -10,7 +10,6 @@ public class Ball : MonoBehaviour
     [SerializeField] private AudioSource _source;
     [SerializeField] private AudioClip[] _clips;
     [SerializeField] private GameObject _poofPrefab;
-    [SerializeField] private int maxHitCount;
     
     private bool _isGhost;
     private int hitCount;
@@ -24,8 +23,7 @@ public class Ball : MonoBehaviour
         if (_isGhost) return;
 
         hitCount++;
-        
-        if(hitCount >= maxHitCount )
+        if(hitCount >=  _bulletSo.MaxHitCount)
             Destroy(gameObject);
         
         _source.clip = _clips[Random.Range(0, _clips.Length)];

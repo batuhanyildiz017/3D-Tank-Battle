@@ -16,4 +16,4 @@ MonoBehaviour:
   TankMaxSpeed: 5
   TankAccelerationRate: 0.2
   HeadRotateSpeed: 25
-  Force: 50
+  Force: 300

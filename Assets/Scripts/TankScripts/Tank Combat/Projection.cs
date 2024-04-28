@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Projection : MonoBehaviour {
     
     [SerializeField] private LineRenderer _line;
-    [SerializeField] private int _maxPhysicsFrameIterations = 100;
+    [SerializeField] public int _maxPhysicsFrameIterations = 100;
     [SerializeField] private Transform _obstaclesParent;
 
     private Scene _simulationScene;
@@ -22,7 +22,6 @@ public class Projection : MonoBehaviour {
 
         foreach (Transform obj in _obstaclesParent) {
             var ghostObj = Instantiate(obj.gameObject, obj.position, obj.rotation);
-            ghostObj.GetComponent<Renderer>().enabled = false;
             SceneManager.MoveGameObjectToScene(ghostObj, _simulationScene);
             if (!ghostObj.isStatic) _spawnedObjects.Add(obj, ghostObj.transform);
         }

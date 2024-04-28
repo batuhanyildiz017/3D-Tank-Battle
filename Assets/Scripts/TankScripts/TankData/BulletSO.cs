@@ -7,6 +7,7 @@ namespace Scriptableobject
     {
 	    public float Damege;
 	    public float deathTime;
+	    public int MaxHitCount;
 
     }
 

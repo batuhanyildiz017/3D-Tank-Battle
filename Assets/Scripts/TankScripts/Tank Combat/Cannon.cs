@@ -14,7 +14,7 @@ public class Cannon : MonoBehaviour {
     
     private void Update() 
     {
-        _projection.SimulateTrajectory(_ballPrefab, _ballSpawn.position, _ballSpawn.forward * _tankSo.Force);
+        _projection.SimulateTrajectory(_ballPrefab, _ballSpawn.position, _ballSpawn.forward * _projection._maxPhysicsFrameIterations);
     }
     
     public void HandleControls() 
