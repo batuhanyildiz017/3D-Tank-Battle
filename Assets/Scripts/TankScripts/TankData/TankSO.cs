@@ -5,7 +5,9 @@ namespace Scriptableobject
 	[CreateAssetMenu(fileName = "NewTankData", menuName = "Data/TankData")]
 	public class TankSO : ScriptableObject
 	{
-	
+		[Header("Core Data")] 
+		public float MaxHealth;
+		
 		[Header("Movemnt")]
 		public float TankFirstSpeed = 10f; // Tankın başlangıç hızı
 		public float TankMaxSpeed = 10f;  // Tankın en fazla gidebileceği hız 

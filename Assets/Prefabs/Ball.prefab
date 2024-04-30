@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6762448618453932208}
   m_Layer: 15
   m_Name: Ball
-  m_TagString: Ball
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
+  m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -158,8 +158,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b71bfaac926af7d4e8747ac2489bc2a8, type: 3}
   - {fileID: 8300000, guid: afa0a8db0c3c03a4c9c28f4c8fbffb9a, type: 3}
   _poofPrefab: {fileID: 711883039324090607}
-  hitCount: 0
-  maxHitCount: 2
 --- !u!82 &6762448618453932208
 AudioSource:
   m_ObjectHideFlags: 0

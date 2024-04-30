@@ -1,3 +1,4 @@
+using Combat;
 using Scriptableobject;
 using UnityEngine;
 
@@ -19,14 +20,23 @@ public class Ball : MonoBehaviour
         _rb.AddForce(velocity, ForceMode.Impulse);
     }
 
-    public void OnCollisionEnter(Collision col) {
+    public void OnCollisionEnter(Collision col)
+    {
         if (_isGhost) return;
 
         hitCount++;
-        if(hitCount >=  _bulletSo.MaxHitCount)
+        if (hitCount >= _bulletSo.MaxHitCount)
             Destroy(gameObject);
-        
+
         _source.clip = _clips[Random.Range(0, _clips.Length)];
         _source.Play();
+        
+        if (col.gameObject.CompareTag("Tank"))
+        {
+            print("Firee!!!");
+            Damagable.instance.takeDamage(50);
+            Destroy(gameObject);
+        }
     }
+    
 }

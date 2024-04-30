@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a5a1ffe8b6c574fb8b584b27aaf0df, type: 3}
   m_Name: PlayerTankSO
   m_EditorClassIdentifier: 
+  MaxHealth: 100
   TankFirstSpeed: 1
   TankMaxSpeed: 5
   TankAccelerationRate: 0.2
-  HeadRotateSpeed: 25
+  HeadRotateSpeed: 50
   Force: 300
