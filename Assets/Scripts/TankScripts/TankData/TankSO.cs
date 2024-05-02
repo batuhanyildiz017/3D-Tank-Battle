@@ -8,7 +8,8 @@ namespace Scriptableobject
 	
 		[Header("Movemnt")]
 		public float TankFirstSpeed = 10f; // Tankın başlangıç hızı
-		public float TankMaxSpeed = 10f;  // Tankın en fazla gidebileceği hız 
+		public float TankMaxSpeed = 10f;  // Tankın en fazla gidebileceği hız
+		public float TankMinSpeed = 0f;  // Tankın min gidebileceği hız
 		public float TankAccelerationRate = 0.1f; // tankın zamanla hızlanma hızı 
 		public float HeadRotateSpeed = 10f; // Tankın üst gövdesinin dönme hızı 
 

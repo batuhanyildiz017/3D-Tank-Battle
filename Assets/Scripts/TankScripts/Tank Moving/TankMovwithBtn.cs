@@ -15,12 +15,14 @@ namespace TankScripts
         private float currentMoveSpeed;
         
         private IEnumerator accelerateCoroutine;
+        private IEnumerator decelerateCoroutine;
 
-        private bool upBtn, downBtn;
+        private bool upBtn, downBtn,upBtnDecelerate;
 
         void Start()
         {
             upBtn = false;
+            upBtnDecelerate = true;
             downBtn = false;
             currentMoveSpeed = _tankSo.TankFirstSpeed;
         }
@@ -37,8 +39,9 @@ namespace TankScripts
             currentMoveSpeed = _tankSo.TankFirstSpeed;
             upBtn = !upBtn;
             downBtn = false;
-            if (accelerateCoroutine == null)
+            if (upBtn && accelerateCoroutine == null)
             {
+                
                 accelerateCoroutine = Accelerate();
                 StartCoroutine(accelerateCoroutine);
             }
@@ -49,11 +52,13 @@ namespace TankScripts
             currentMoveSpeed = _tankSo.TankFirstSpeed;
             downBtn = !downBtn;
             upBtn = false;
-            if (accelerateCoroutine == null)
+            if (downBtn && accelerateCoroutine == null)
             {
                 accelerateCoroutine = Accelerate();
                 StartCoroutine(accelerateCoroutine);
             }
+
+            
         }
         public void MakeTrueLeft()  //sol butona bas�ld���n� kontrol etme
         {
@@ -82,14 +87,29 @@ namespace TankScripts
                 transform.Translate(Vector3.back * currentMoveSpeed * Time.deltaTime);
             }
         }
+        
         IEnumerator Accelerate()
         {
-            while (currentMoveSpeed < _tankSo.TankMaxSpeed)
-            {
-                currentMoveSpeed += _tankSo.TankAccelerationRate;
-                yield return null;
+            if(upBtn && !downBtn || downBtn && !upBtn){
+                while (currentMoveSpeed < _tankSo.TankMaxSpeed)
+                {
+                    currentMoveSpeed += _tankSo.TankAccelerationRate;
+                    yield return new WaitForSeconds(0.2f);
+                }
+                accelerateCoroutine = null;
+            
             }
-            accelerateCoroutine = null;
+                
+                
+        }
+        IEnumerator Decelerate()
+        {
+            while (currentMoveSpeed > _tankSo.TankMinSpeed)
+            {
+                currentMoveSpeed -= (_tankSo.TankAccelerationRate);
+                yield return new WaitForSeconds(0.2f);
+            }
+            decelerateCoroutine = null;
         }
         void LeftRotate()
         {
