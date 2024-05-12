@@ -115,14 +115,14 @@ namespace TankScripts
         {
             if (leftclickControl==true && (upBtn==true || downBtn==true) )
             {
-                transform.Rotate(new Vector3(0f, -_tankSo.HeadRotateSpeed*Time.deltaTime, 0f));
+                transform.Rotate(new Vector3(0f, -_tankSo.RotateSpeed*Time.deltaTime, 0f));
 
             }
         }
         void RightRotate()
         {
             if(rightclickControl==true && (upBtn==true || downBtn==true))
-                transform.Rotate(new Vector3(0f, _tankSo.HeadRotateSpeed*Time.deltaTime, 0f));
+                transform.Rotate(new Vector3(0f, _tankSo.RotateSpeed*Time.deltaTime, 0f));
         }
     }
 }

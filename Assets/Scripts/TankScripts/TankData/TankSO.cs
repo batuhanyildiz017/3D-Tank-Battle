@@ -11,7 +11,7 @@ namespace Scriptableobject
 		public float TankMaxSpeed = 10f;  // Tankın en fazla gidebileceği hız
 		public float TankMinSpeed = 0f;  // Tankın min gidebileceği hız
 		public float TankAccelerationRate = 0.1f; // tankın zamanla hızlanma hızı 
-		public float HeadRotateSpeed = 10f; // Tankın üst gövdesinin dönme hızı 
+		public float RotateSpeed = 10f; // Tankın Sağ sola dönme hızı 
 
 		[Header("Combat")]
 		public float Force = 10f; // merminin atış hızı 

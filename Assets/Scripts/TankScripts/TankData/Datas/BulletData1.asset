@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 796ff1179c5cab74c940c7be504a24fa, type: 3}
-  m_Name: BulletData
+  m_Script: {fileID: 11500000, guid: 9b6f79c0a14d05941aa97635cf007777, type: 3}
+  m_Name: BulletData1
   m_EditorClassIdentifier: 
-  Damege: 0
-  deathTime: 0
-  MaxHitCount: 0
+  speed: 100
+  damage: 5
+  maxDistance: 10

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="NewBulletData", menuName ="Data/BulletData")]
+[CreateAssetMenu(fileName ="NewBulletData1", menuName ="Data1/BulletData1")]
 public class BulletData : ScriptableObject
 {
     public float speed = 100;
