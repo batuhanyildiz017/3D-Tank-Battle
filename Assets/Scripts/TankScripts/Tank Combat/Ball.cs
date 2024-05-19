@@ -20,7 +20,22 @@ public class Ball : MonoBehaviour
     }
 
     public void OnCollisionEnter(Collision col) {
-        if (_isGhost) return;
+        //if (_isGhost) return;
+        
+        if (col.gameObject.CompareTag("Enemy")) {
+            print("vurduifsiz");
+            EnemyTank enemyTank = col.gameObject.GetComponent<EnemyTank>();
+            if (enemyTank != null) {
+                enemyTank.TakeDamage(100);
+                print("vurdu");
+            }
+        }
+        else if (col.gameObject.CompareTag("Player")) {
+            PlayerBase player = col.gameObject.GetComponent<PlayerBase>();
+            if (player != null) {
+                player.TakeDamage(20);
+            }
+        }
 
         hitCount++;
         if(hitCount >=  _bulletSo.MaxHitCount)
